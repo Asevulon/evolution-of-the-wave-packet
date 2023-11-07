@@ -1,6 +1,7 @@
 #pragma once
 #include<complex>
 #include<vector>
+#include<algorithm>
 using namespace std;
 #define PI 3.141592653589793
 #define MS_READYFORFOURIER WM_USER + 1
@@ -51,10 +52,11 @@ public:
 
 	void Main();
 	void fftAnalize();
+	void RestartFFT();
 	vector<int> GetPeakList(int id);
 	vector<double>GetPeak(int id, char type = 'm');
 	vector<double>GetSpectr(int id, char type = 'm');
-
+	double GetTau();
 	HANDLE IsYAvailable;
 	bool Continue;
 	HWND parent = NULL;

@@ -98,7 +98,7 @@ void Drawer::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct)
 	float steplenY = (top - bot) / 10.;
 	float steplenX = (right - left) / 10.;
 
-	FontFamily FF(L"Arial");
+	FontFamily FF(L"Times New Roman");
 	Gdiplus::Font font(&FF, 12, FontStyle::FontStyleRegular, UnitPixel);
 	SolidBrush brush(Color::Black);
 	for (int i = 0; i < 11; i++)

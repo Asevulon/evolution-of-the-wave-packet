@@ -44,6 +44,7 @@ BEGIN_MESSAGE_MAP(MyDlg, CDialogEx)
 	ON_CBN_SELCHANGE(IDC_COMBO1, &MyDlg::OnSelchangeCombo1)
 	ON_CBN_SELCHANGE(IDC_COMBO2, &MyDlg::OnSelchangeCombo2)
 	ON_BN_CLICKED(IDC_BUTTON_POTENCIAL, &MyDlg::OnBnClickedButtonPotencial)
+	ON_BN_CLICKED(IDC_BUTTON_FFT, &MyDlg::OnBnClickedButtonFft)
 END_MESSAGE_MAP()
 
 
@@ -68,6 +69,9 @@ BOOL MyDlg::OnInitDialog()
 	FourierThreadStopped = CreateEventW(NULL, TRUE, TRUE, NULL);
 
 	Udlg.pParent = this;
+
+	SpectrDrw.SetTitle(L"F{Y} распределено по частотам [0,  1 / (\x03C4 * T)]");
+	WaveDrw.SetTitle(L"i - тая волновая функция");
 	return TRUE;  // возврат значения TRUE, если фокус не передан элементу управления
 }
 
@@ -306,7 +310,7 @@ void MyDlg::OnSelchangeCombo2()
 	SpectrDrw.SetSelectedPos(id);
 	SpectrDrw.Invalidate();
 
-	double Ei = hp * id / dlg.dt/q;
+	double Ei = hp * id / evo.GetTau()/q;
 	if ((fabs(Ei) < 1e5) && (fabs(Ei) > 1e-2))str.Format(L"%.2f", Ei);
 	else str.Format(L"%.2e", Ei);
 	EiCtr.SetWindowTextW(str);
@@ -320,4 +324,11 @@ void MyDlg::OnBnClickedButtonPotencial()
 	Udlg.SetParams(L"График потенциала", L"U(x)", x, temp);
 	Udlg.ShowWindow(SW_SHOW);
 	Udlg.UpdateWindow();
+}
+
+
+void MyDlg::OnBnClickedButtonFft()
+{
+	// TODO: добавьте свой код обработчика уведомлений
+	evo.RestartFFT();
 }

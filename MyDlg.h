@@ -72,4 +72,5 @@ public:
 	PictureDialog Udlg;
 	afx_msg void OnBnClickedButtonPotencial();
 	CEdit EiCtr;
+	afx_msg void OnBnClickedButtonFft();
 };

@@ -27,6 +27,8 @@
 #define IDC_EDIT11                      1015
 #define IDC_BUTTON_POTENCIAL            1015
 #define IDC_EDIT12                      1016
+#define IDC_BUTTON_POTENCIAL2           1016
+#define IDC_BUTTON_FFT                  1016
 #define IDC_EDIT13                      1017
 
 // Next default values for new objects

@@ -91,6 +91,10 @@ void Evolution::SetYiNum(int num)
 	Yi.resize(m_Yinum);
 }
 
+double Evolution::GetTau()
+{
+	return m_tau;
+}
 vector<double> Evolution::GetX()
 {
 	return m_x;
@@ -230,7 +234,10 @@ void Evolution::Main()
 	}
 }
 
-
+void Evolution::RestartFFT()
+{
+	m_Yictr = 0;
+}
 void Evolution::fftAnalize()
 {
 	FYi.resize(m_dots);
