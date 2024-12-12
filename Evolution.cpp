@@ -64,8 +64,9 @@ void Evolution::MakeU(double V0, double alpha, int dots)
 	for (int i = 0; i < dots; i++)
 	{
 		m_x[i] = i * step;
-		U[i] = sin(alpha * m_x[i]);
-		U[i] *= V0 * U[i];
+		/*U[i] = sin(alpha * m_x[i]);
+		U[i] *= V0 * U[i];*/
+		U[i] = V0;
 	}
 }
 void Evolution::MakeY0(double a, double sigma, double Y0)

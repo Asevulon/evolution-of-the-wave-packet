@@ -220,6 +220,13 @@ void Drawer::SetData(vector<double>& y)
 	if (data.empty())return;
 	DynamicTop = *max_element(data.begin(), data.end());
 	DynamicBot = *min_element(data.begin(), data.end());
+
+	double lrange = DynamicTop - DynamicBot;
+	if (lrange < 1e-16)
+	{
+		DynamicTop += lrange * 0.1;
+		DynamicBot -= lrange * 0.1;
+	}
 }
 void Drawer::SetKeys(vector<double>& x)
 {
