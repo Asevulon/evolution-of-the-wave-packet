@@ -54,6 +54,9 @@ void SettingsDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_CHECK1, DynamicRangeCheck);
 	DDX_Text(pDX, IDC_EDIT12, Yinum);
 	DDX_Text(pDX, IDC_EDIT13, Delay);
+	DDX_Control(pDX, IDC_BUTTON1, AlphaLabelCtrl);
+	DDX_Control(pDX, IDC_EDIT7, AlphaValueCtrl);
+	DDX_Control(pDX, IDC_ALPHA_LABEL, AlphaLabel2Ctrl);
 }
 
 
@@ -100,6 +103,9 @@ BOOL SettingsDlg::OnInitDialog()
 
 	if (DRCheck)DynamicRangeCheck.SetCheck(BST_CHECKED);
 	else DynamicRangeCheck.SetCheck(BST_UNCHECKED);
+
+	AlphaLabel2Ctrl.SetWindowTextW(L"");
+	AlphaValueCtrl.ShowWindow(SW_HIDE);
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// Исключение: страница свойств OCX должна возвращать значение FALSE
 }

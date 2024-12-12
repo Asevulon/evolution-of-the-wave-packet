@@ -42,4 +42,7 @@ public:
 	bool DRCheck = true;
 	int Yinum;
 	long long Delay;
+	CButton AlphaLabelCtrl;
+	CEdit AlphaValueCtrl;
+	CStatic AlphaLabel2Ctrl;
 };
